@@ -28,9 +28,15 @@ Go to project root and execute the following command in console to get the requi
 ```
 flutter pub get 
 
+```
+
+Run it on release mode 
+
+```
 flutter run --release 
+```
 
 then choose web mode (the app only runs on web mode as of now)
-```
+
 # App demo of each feature is included in the file app-demo
 
