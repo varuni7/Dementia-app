@@ -1,6 +1,6 @@
 # An app to help patients suffering from Dementia 
 
-a flutter app which has personalized cognitive games for better memory reinforcement for Dementia patients. 
+A flutter app which includes personalized cognitive games for better memory reinforcement and to-do reminders for Dementia patients. 
 Visual and memory based games which are a fun haven for senior
 citizens.  All the games will be based on crucial information to the patient (collected through a query form and stored in firebase database ) thus, cognitive reinforcement is emphasized.
  features include :
@@ -14,7 +14,7 @@ Classic word search game with a grid of letters and the user has to find key wor
 Visual based questionnaire for visual memory reinforcement. Implemented a dashboard to track the number of right and wrong answers.
 
 4. To-do reminders: 
-User can create a to-do check list , tick off tasks . add new tasks and delete old ones.
+User can create a to-do check list , tick off tasks . add new tasks and delete old ones.(not integrated with firebase dataabse yet)
 
 
 **Step 1:**
