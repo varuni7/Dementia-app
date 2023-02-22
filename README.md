@@ -4,16 +4,16 @@ a flutter app which has personalized cognitive games for better memory reinforce
 Visual and memory based games which are a fun haven for senior
 citizens.  All the games will be based on crucial information to the patient (collected through a query form and stored in firebase database ) thus, cognitive reinforcement is emphasized.
  features include :
-1)Word Search:
+1. Word Search:
 Classic word search game with a grid of letters and the user has to find key words or answers based on the hints on the hints page 
 
-2)Reverse spell:
+2. Reverse spell:
  User has to type the reverse spelling of the word thrown at him / her by the app. (voice cue) User can click on repeat word to hear the word again . 
  
-3)Picture Quiz: 
+3. Picture Quiz: 
 Visual based questionnaire for visual memory reinforcement. Implemented a dashboard to track the number of right and wrong answers.
 
- 4) To-do reminders: 
+4. To-do reminders: 
 User can create a to-do check list , tick off tasks . add new tasks and delete old ones.
 
 
