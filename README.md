@@ -38,5 +38,5 @@ flutter run --release
 
 then choose web mode (the app only runs on web mode as of now)
 
-== App demo of each feature is included in the file app-demo ==
+## App demo of each feature is included in the file app-demo ##
 
