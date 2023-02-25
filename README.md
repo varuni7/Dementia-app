@@ -14,7 +14,7 @@ Classic word search game with a grid of letters and the user has to find key wor
 Visual based questionnaire for visual memory reinforcement. Implemented a dashboard to track the number of right and wrong answers.
 
 4. To-do reminders: 
-User can create a to-do check list , tick off tasks . add new tasks and delete old ones.(not integrated with firebase dataabse yet)
+User can create a to-do check list , tick off tasks . add new tasks and delete old ones.(not integrated with firebase datababse yet)
 
 
 **Step 1:**
