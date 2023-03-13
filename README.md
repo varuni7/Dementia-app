@@ -40,3 +40,12 @@ then choose web mode (the app only runs on web mode as of now)
 
 ## App demo of each feature is included in the file app-demo ##
 
+## Have to work on :
+
+1. Implementing Google Auth for Mac 
+2. Fixing "Plugin with id 'com.google.gms.google-servicies' not found" error 
+Have tried fixes :
+https://stackoverflow.com/a/42174335
+https://stackoverflow.com/a/47171000
+3. Fix Gradel Task assemble release 
+
