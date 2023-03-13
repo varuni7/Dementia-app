@@ -1,4 +1,4 @@
-# An app to help patients suffering from Dementia 
+# An app to help memory reinforcement in patients suffering from Early stage Dementia 
 
 A flutter app which includes personalized cognitive games for better memory reinforcement and to-do reminders for Dementia patients. 
 Visual and memory based games which are a fun haven for senior
@@ -8,7 +8,7 @@ citizens.  All the games will be based on crucial information to the patient (co
 Classic word search game with a grid of letters and the user has to find key words or answers based on the hints on the hints page 
 
 2. Reverse spell:
- User has to type the reverse spelling of the word thrown at him / her by the app. (voice cue) User can click on repeat word to hear the word again . 
+ User has to type the reverse spelling of the word thrown at him / her by the app (voice cue).  User can click on repeat word to hear the word again . 
  
 3. Picture Quiz: 
 Visual based questionnaire for visual memory reinforcement. Implemented a dashboard to track the number of right and wrong answers.
