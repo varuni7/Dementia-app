@@ -11,8 +11,7 @@ class TodoActivity extends StatefulWidget {
   State<TodoActivity> createState() => _HomeState();
 }
 
-//TODO:the add button for todo must only display for caregiver
-//patient must only be able to view todos not add todos n
+ 
 class _HomeState extends State<TodoActivity> {
   final todosList = Todo.todoList();
   List<Todo> _foundToDo = [];
