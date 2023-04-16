@@ -1,5 +1,5 @@
 # An app to help memory reinforcement in patients suffering from Early stage Dementia 
-## App demo of each feature is included in the file app-demo ##
+## App demo of the whole app : [click here](https://youtu.be/2fnpckWBxRY) ##
 
 A flutter app which includes personalized cognitive games for better memory reinforcement and to-do reminders for Dementia patients. 
 Visual and memory based games which are a fun haven for senior
