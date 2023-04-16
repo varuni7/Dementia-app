@@ -1,6 +1,7 @@
 # An app to help memory reinforcement in patients suffering from Early stage Dementia 
 ## App demo of the whole app : [click here](https://youtu.be/2fnpckWBxRY) ##
 
+### What is Project Roots ?
 A flutter app which includes personalized cognitive games for better memory reinforcement and to-do reminders for Dementia patients. 
 Visual and memory based games which are a fun haven for senior
 citizens.  All the games will be based on crucial information to the patient (collected through a query form and stored in firebase database ) thus, cognitive reinforcement is emphasized.
