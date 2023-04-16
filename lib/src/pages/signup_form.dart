@@ -138,6 +138,8 @@ class _QueryFormPageState extends State<QueryFormPage> {
   late TextEditingController locality_nameTextController;
   late String allergies;
   late TextEditingController allergiesTextController;
+  late TextEditingController phone_numberTextController;
+  String phone_number = '';
 
 // class _LoginData {
 //   late String first_name = 'asd';
@@ -296,6 +298,21 @@ class _QueryFormPageState extends State<QueryFormPage> {
                     ),
                   ),
                 ),
+                TextField(
+                  controller: phone_numberTextController,
+                  onChanged: (value) {
+                    phone_number = value;
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'Care Taker phone number',
+                    alignLabelWithHint: true,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                ),
                 // TextFormField(
                 //     decoration:
                 //         InputDecoration(hintText: 'What is your first name?'),
@@ -348,6 +365,7 @@ class _QueryFormPageState extends State<QueryFormPage> {
                               .collection('users')
                               .doc(_auth.currentUser!.uid)
                               .update({
+                            'profile_type': 0,
                             'created': Timestamp.now(),
                             'first_name': first_name,
                             'spouse_name': spouse_name,
@@ -355,7 +373,9 @@ class _QueryFormPageState extends State<QueryFormPage> {
                             'locality_name': locality_name,
                             'house_colour': house_colour,
                             'allergy': allergies,
-                            'profile_type': 0
+                            'caregiver_ph_number':phone_number
+                            
+
                             //'registered':
                           });
                         } catch (e) {
