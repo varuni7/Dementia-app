@@ -65,14 +65,14 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   final Set<GridCellRenderObject> activeCells = {};
   final List<int> activeCellIndexes = [];
   // Test words
-  Future<List<String>> getCurrentUser() async {
+  Future<List<String>> getCurrentUserDetails() async {
     final user = _auth.currentUser;
     if (user == null) {
       return Future.value([]);
     } else {
       Map<String, dynamic> user_deets =
           (await _fireStore.collection('users').doc(user.uid).get()).data()!;
-      return await [
+      return  [
         user_deets["first_name"],
         user_deets["spouse_name"],
         user_deets["fav_colour"]
@@ -88,7 +88,7 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   @override
   void initState() {
     generateLetterGrid();
-    getCurrentUser().then((value) {
+    getCurrentUserDetails().then((value) {
       setState(() {
         targetWords = value;
       });
@@ -117,13 +117,13 @@ class WordSearchActivityState extends State<WordSearchActivity> {
       }
       solutions[word] = [startX, startY];
     }
-
+  
     super.initState();
   }
 
   void generateLetterGrid() {
     for (var i = 0; i < gridArea; i++) {
-      //gridLetters.insert(i, "*");
+      gridLetters.insert(i, "*");
       gridLetters.insert(i, letters.elementAt(random.nextInt(letters.length)));
     }
   }

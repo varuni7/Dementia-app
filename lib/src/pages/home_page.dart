@@ -42,7 +42,7 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authStateChangesProvider);
-    final db = ref.read(firestoreProvider);
+    final db = ref.read(firestoreProvider);//dependecy injection
     return Scaffold(
       body: Center(
           child: user.when(

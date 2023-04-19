@@ -48,15 +48,8 @@ class _PatientScreenState extends State<PatientScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Project Roots",
-            textAlign: TextAlign.center,
-            ),
-          backgroundColor: Color.fromRGBO(106, 153, 78, 1),
-        ),
-        body: Theme(
+    return
+    Theme(
             data: ThemeData.dark()
                 .copyWith(scaffoldBackgroundColor: Colors.greenAccent),
             child: Scaffold(
@@ -109,6 +102,27 @@ class _PatientScreenState extends State<PatientScreen> {
                           ),
                         ),
                         SizedBox(height: 50),
+                                     Center(
+                            heightFactor: 1.5,
+                            child: ButtonTheme(
+                                minWidth: 600.0,
+                                height: 100.0,
+                                child: ElevatedButton(
+                                  onPressed: () => _navigateToScreen(
+                                      context, PhoneRecallActivity.path),
+                                  child: const Text(
+                                    "Phone Recall",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                      minimumSize: Size(250, 60),
+                                      primary: Color.fromARGB(255, 10, 10, 10),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 50, vertical: 20)),
+                                ))),
                         Center(
                             heightFactor: 1.5,
                             child: ButtonTheme(
@@ -172,6 +186,7 @@ class _PatientScreenState extends State<PatientScreen> {
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 50, vertical: 20)),
                                 ))),
+                   
                         Center(
                             heightFactor: 1.7,
                             child: ButtonTheme(
@@ -196,6 +211,6 @@ class _PatientScreenState extends State<PatientScreen> {
                       ]),
                 ),
               ),
-            )));
+            ));
   }
 }

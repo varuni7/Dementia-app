@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:confetti/confetti.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +67,9 @@ class _ReverseSpellActivityState extends State<ReverseSpellActivity> {
   late String target_word;
 
   FlutterTts flutterTts = FlutterTts();
+   final confettiController = ConfettiController();
+
+    
   late final TextEditingController _textEditingController;
   Future<String> getCurrentUser() async {
     final user = _auth.currentUser;
@@ -126,13 +130,7 @@ class _ReverseSpellActivityState extends State<ReverseSpellActivity> {
   }
 
   Widget _buildActiviyWidget(BuildContext context) {
-    final confettiController = ConfettiController();
-
-    // @override
-    // void dispose() {
-    //   confettiController.dispose();
-    //   super.dispose();
-    // }
+   
 
     @override
     String result = "";
@@ -257,6 +255,23 @@ class _ReverseSpellActivityState extends State<ReverseSpellActivity> {
     //o/p for success
     // repeat word button to repeat word
     // success/failure
+    final confettiController = ConfettiController();
+
+    // @override
+    // void dispose() {
+    //   confettiController.dispose();
+    //   super.dispose();
+    // }
+
+    @override
+    String result = "";
+    if (correctAns != null && correctAns!) {
+      result = "Correct!";
+      flutterTts.speak("You got it right!");
+    } else if (correctAns != null && !correctAns!) {
+      result = "Try again";
+      flutterTts.speak("Lets give it another try");
+    }
     if (isStarted) {
       return Material(child: _buildActiviyWidget(context));
     }
