@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projectroots/pages.dart';
 import 'package:projectroots/activities.dart';
-import 'package:projectroots/src/activities/medicine_list/table.dart';
+
 import 'package:projectroots/src/activities/patient_records.dart';
 import 'package:projectroots/theme.dart';
 import 'dart:math';
@@ -24,7 +24,7 @@ class App extends StatelessWidget {
         ReverseSpellActivity.path: (context) =>
             ReverseSpellActivity(),
         WordSearchActivity.path: (context) => const WordSearchActivity(),
-        MedicineList.path: (context) => const MedicineList(),
+         
         PatientRecords.path: (context) => PatientRecords(),
         QueryFormPage.path: (context) => QueryFormPage(),
         PatientScreen.path:((context) => PatientScreen()),

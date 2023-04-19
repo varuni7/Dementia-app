@@ -33,10 +33,7 @@ class MainMenu extends ConsumerWidget {
                 onPressed: () => _navigateToScreen(context, TodoActivity.path),
                 child: const Text('Add ToDo Reminder'),
               ),
-              ElevatedButton(
-                onPressed: () => _navigateToScreen(context, MedicineList.path),
-                child: const Text('View Medication List'),
-              ),
+             
               ElevatedButton(
                 onPressed: () =>
                     _navigateToScreen(context, ReverseSpellActivity.path),
@@ -64,10 +61,7 @@ class MainMenu extends ConsumerWidget {
             children: [
               Container(
                   child: Image.asset("assets/images/patient_proflie_pic.png")),
-              ElevatedButton(
-                onPressed: () => _navigateToScreen(context, MedicineList.path),
-                child: const Text('Medication'),
-              ),
+               
               ElevatedButton(
                 onPressed: () =>
                     _navigateToScreen(context, WordSearchActivity.path),
