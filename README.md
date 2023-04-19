@@ -50,4 +50,5 @@ Have tried fixes :
 https://stackoverflow.com/a/42174335
 https://stackoverflow.com/a/47171000
 3. Fix Gradel Task assemble release 
+4. Include more games
 
