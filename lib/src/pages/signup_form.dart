@@ -138,6 +138,8 @@ class _QueryFormPageState extends State<QueryFormPage> {
   late TextEditingController locality_nameTextController;
   late String allergies;
   late TextEditingController allergiesTextController;
+  late String phone_number;
+  late TextEditingController phone_numberTextController;
 
 // class _LoginData {
 //   late String first_name = 'asd';
@@ -176,6 +178,7 @@ class _QueryFormPageState extends State<QueryFormPage> {
     locality_nameTextController.dispose();
     allergiesTextController.dispose();
     house_colourTextController.dispose();
+    phone_numberTextController.dispose();
     super.dispose();
   }
 
@@ -190,6 +193,7 @@ class _QueryFormPageState extends State<QueryFormPage> {
     locality_nameTextController = TextEditingController();
     allergiesTextController = TextEditingController();
     house_colourTextController = TextEditingController();
+    phone_numberTextController=TextEditingController();
   }
 
   @override
@@ -267,6 +271,21 @@ class _QueryFormPageState extends State<QueryFormPage> {
                   ),
                 ),
                 TextField(
+                  controller: phone_numberTextController,
+                  onChanged: (value) {
+                    phone_number = value;
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'Enter care giver\s phone number',
+                    alignLabelWithHint: true,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                ),
+                TextField(
                   controller: house_colourTextController,
                   onChanged: (value) {
                     house_colour = value;
@@ -317,6 +336,7 @@ class _QueryFormPageState extends State<QueryFormPage> {
                               .doc(_auth.currentUser!.uid)
                               .update({
                             'created': Timestamp.now(),
+                            'phone_number':phone_number,
                             'first_name': first_name,
                             'spouse_name': spouse_name,
                             'city': city,

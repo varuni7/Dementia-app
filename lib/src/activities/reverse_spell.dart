@@ -6,7 +6,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:projectroots/src/extensions/string.dart';
 import 'dart:async';
 import 'dart:math';
- 
+
 class ReverseSpellActivity extends StatefulWidget {
   static const path = '/reverse_spelling';
   static const name = 'Reverse Spell';
@@ -42,8 +42,15 @@ class _ReverseSpellActivityState extends State<ReverseSpellActivity> {
     } else {
       Map<String, dynamic> user_deets =
           (await _fireStore.collection('users').doc(user.uid).get()).data()!;
-          
-      return await user_deets["first_name"];
+      print(_fireStore.collection('users').doc(user.uid).get());
+      final _random = new Random();
+      var list = [
+        user_deets["first_name"],
+        user_deets["house_colour"],
+        user_deets["spouse_name"],
+        user_deets["allergy"]
+      ];
+      return list[_random.nextInt(list.length)];
     }
   }
 
