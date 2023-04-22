@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/basic.dart';
@@ -8,11 +9,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projectroots/src/pages/patient_screen.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
+  LoginPage({super.key});
+  final _fireStore = FirebaseFirestore.instance;
   Future<UserCredential> signInWithGoogle() async {
     GoogleAuthProvider googleProvider = GoogleAuthProvider();
-
+    
+    
+    
     googleProvider
         .addScope('https://www.googleapis.com/auth/contacts.readonly');
     googleProvider.setCustomParameters({'login_hint': 'user@example.com'});
@@ -90,6 +93,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       onPressed: () async {
                         final credential = await signInWithGoogle();
+                        _fireStore.collection('users').doc(credential.user?.uid).set({});
                         print(credential.user?.uid);
                         print(credential.user?.email);
                       },

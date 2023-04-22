@@ -60,6 +60,7 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   // Grid Variables
   final int gridSize = 10;
   final List<String> gridLetters = [];
+  
   // Selection and Activation on interaction
   final List<int> selectedCellIndexes = [];
   final Set<GridCellRenderObject> activeCells = {};
@@ -90,7 +91,10 @@ class WordSearchActivityState extends State<WordSearchActivity> {
     generateLetterGrid();
     getCurrentUser().then((value) {
       setState(() {
+        print("hey");
         targetWords = value;
+        print(targetWords);
+        print("meme");
       });
     });
 

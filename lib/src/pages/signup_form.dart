@@ -269,7 +269,7 @@ class _QueryFormPageState extends State<QueryFormPage> {
                 TextField(
                   controller: house_colourTextController,
                   onChanged: (value) {
-                    fav_food = value;
+                    house_colour = value;
                   },
                   decoration: InputDecoration(
                     hintText: 'What colour is your house',
@@ -302,39 +302,7 @@ class _QueryFormPageState extends State<QueryFormPage> {
                 //     onSaved: (String? value) {
                 //       this._data.first_name = value!;
                 //     }),
-                // TextFormField(
-                //     decoration: InputDecoration(
-                //         hintText: 'What is your spouse\'s name?'),
-                //     onSaved: (String? value) {
-                //       this._data.spouse_name = value!;
-                //     }),
-                // TextFormField(
-                //     decoration: InputDecoration(
-                //         labelText: 'Which city do you live in?'),
-                //     onSaved: (String? value) {
-                //       this._data.city = value!;
-                //     }),
-                // TextFormField(
-                //     // Use secure text for passwords.
-                //     decoration: InputDecoration(
-                //         labelText: 'name your locality / apartment?'),
-                //     onSaved: (String? value) {
-                //       this._data.locality_name = value!;
-                //     }),
-                // TextFormField(
-                //     // Use secure text for passwords.
-                //     decoration:
-                //         InputDecoration(labelText: 'Name your favourite food?'),
-                //     onSaved: (String? value) {
-                //       this._data.fav_food = value!;
-                //     }),
-                // TextFormField(
-                //     // Use secure text for passwords.
-                //     decoration: InputDecoration(
-                //         labelText: 'Do you have any allergies?'),
-                //     onSaved: (String? value) {
-                //       this._data.allergies = value!;
-                //     }),
+
                 Container(
                   width: screenSize.width,
                   child: ElevatedButton(
@@ -360,7 +328,7 @@ class _QueryFormPageState extends State<QueryFormPage> {
                           });
                         } catch (e) {
                           Navigator.of(context).pushNamed(PatientScreen.path);
-                          print(e);
+
                         }
                         ;
 
