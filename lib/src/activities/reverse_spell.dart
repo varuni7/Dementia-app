@@ -238,47 +238,47 @@ class _ReverseSpellActivityState extends State<ReverseSpellActivity> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.white10,
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(116, 152, 87, 1),
-        title: Text('Reverse Spell'),
-      ),
-      body: Container(
-        constraints: const BoxConstraints(
-            maxHeight: double.infinity,
-            maxWidth: double.infinity,
-            minHeight: double.infinity,
-            minWidth: double.infinity),
-        decoration: BoxDecoration(
-          color: Color(0xfffffde8),
-          image: DecorationImage(
-            image: AssetImage("assets/images/patient_main_menu_bg.jpg"),
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.2), BlendMode.dstATop),
-            fit: BoxFit.cover,
-          ),
+        backgroundColor: Colors.white10,
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          backgroundColor: Color.fromRGBO(116, 152, 87, 1),
+          title: Text('Reverse Spell'),
         ),
-        //height: 1000.0,
-        padding: const EdgeInsets.symmetric(vertical: 100.0),
-        child: OutlinedButton(
-          onPressed: _speakWord,
-          child: const Text(
-            'Start Game',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Color.fromARGB(255, 52, 49, 49),
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
+        body: Container(
+          constraints: const BoxConstraints(
+              maxHeight: double.infinity,
+              maxWidth: double.infinity,
+              minHeight: double.infinity,
+              minWidth: double.infinity),
+          decoration: BoxDecoration(
+            color: Color(0xfffffde8),
+            image: DecorationImage(
+              image: AssetImage("assets/images/patient_main_menu_bg.jpg"),
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.2), BlendMode.dstATop),
+              fit: BoxFit.cover,
             ),
           ),
-          style: OutlinedButton.styleFrom(
-              minimumSize: Size(30, 40),
-              maximumSize: Size(30, 40),
-              backgroundColor: Colors.transparent,
-              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20)),
-        ),
-      ),
-    );
+          //height: 1000.0,
+          //padding: const EdgeInsets.symmetric(vertical: 100.0),
+          child: Center(
+            child: OutlinedButton(
+              onPressed: _speakWord,
+              child: const Text(
+                'Start Game',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.black,
+                //padding: EdgeInsets.symmetric(horizontal: 50, vertical: )),
+              ),
+            ),
+          ),
+        ));
   }
 }

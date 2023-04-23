@@ -48,15 +48,7 @@ class _PatientScreenState extends State<PatientScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Project Roots",
-            textAlign: TextAlign.center,
-            ),
-          backgroundColor: Color.fromRGBO(106, 153, 78, 1),
-        ),
-        body: Theme(
+    return  Theme(
             data: ThemeData.dark()
                 .copyWith(scaffoldBackgroundColor: Colors.greenAccent),
             child: Scaffold(
@@ -196,6 +188,6 @@ class _PatientScreenState extends State<PatientScreen> {
                       ]),
                 ),
               ),
-            )));
+            ));
   }
 }

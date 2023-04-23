@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -93,10 +95,22 @@ class LoginPage extends StatelessWidget {
                       ),
                       onPressed: () async {
                         final credential = await signInWithGoogle();
-                        _fireStore.collection('users').doc(credential.user?.uid).set({});
-                        print(credential.user?.uid);
-                        print(credential.user?.email);
-                      },
+                        var docRef = _fireStore.collection("users").doc(credential.user?.uid);
+
+                        docRef.get().then((doc) => {
+                      if (doc.exists) {
+                            print(doc.data())
+    }        else {
+        // doc.data() will be undefined in this case
+         _fireStore.collection('users').doc(credential.user?.uid).set({})
+    },
+     print(credential.user?.uid),
+                        print(credential.user?.email)
+}) ;
+},
+                        
+                       
+                      
                       style: ElevatedButton.styleFrom(
                           minimumSize: Size(250, 60),
                           backgroundColor: Color.fromARGB(255, 10, 10, 10),
@@ -104,7 +118,7 @@ class LoginPage extends StatelessWidget {
                               EdgeInsets.symmetric(horizontal: 5, vertical: 20),
                           textStyle: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold)),
-                    )))),
+        )))),
         // Container(
         //     child: Row(
         //   children: <Widget>[

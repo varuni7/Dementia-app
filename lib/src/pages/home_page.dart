@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:projectroots/pages.dart';
-
+//import { doc, getDoc } from "firebase/firestore";
 final firebaseAuthProvider =
     Provider<FirebaseAuth>((ref) => FirebaseAuth.instance);
 
@@ -38,7 +38,7 @@ final authStateChangesProvider = StreamProvider<User?>(
 class HomePage extends ConsumerWidget {
   static const path = '/';
   const HomePage({super.key});
-
+  
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authStateChangesProvider);

@@ -60,24 +60,43 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   // Grid Variables
   final int gridSize = 10;
   final List<String> gridLetters = [];
-  
+
   // Selection and Activation on interaction
   final List<int> selectedCellIndexes = [];
   final Set<GridCellRenderObject> activeCells = {};
   final List<int> activeCellIndexes = [];
   // Test words
-  Future<List<String>> getCurrentUser() async {
+  // Future<List<String>> getCurrentUser() async {
+  //   final user = _auth.currentUser;
+  //   if (user == null) {
+  //     return Future.value([]);
+  //   } else {
+  //     Map<String, dynamic> user_deets =
+  //         (await _fireStore.collection('users').doc(user.uid).get()).data()!;
+  //     return [
+  //       user_deets["first_name"],
+  //       user_deets["spouse_name"],
+  //       user_deets["fav_colour"]
+  //     ];
+  //   }
+  // }
+  Future<List<dynamic>> getCurrentUser() async {
     final user = _auth.currentUser;
+    print(user);
     if (user == null) {
-      return Future.value([]);
+      return Future.value([""]);
     } else {
       Map<String, dynamic> user_deets =
           (await _fireStore.collection('users').doc(user.uid).get()).data()!;
-      return await [
+      print(_fireStore.collection('users').doc(user.uid).get());
+      
+      var list = [
         user_deets["first_name"],
+        user_deets["house_colour"],
         user_deets["spouse_name"],
-        user_deets["fav_colour"]
+        user_deets["allergy"]
       ];
+      return list;
     }
   }
 
@@ -88,7 +107,7 @@ class WordSearchActivityState extends State<WordSearchActivity> {
 
   @override
   void initState() {
-    generateLetterGrid();
+    
     getCurrentUser().then((value) {
       setState(() {
         print("hey");
@@ -96,10 +115,12 @@ class WordSearchActivityState extends State<WordSearchActivity> {
         print(targetWords);
         print("meme");
       });
-    });
-
+    }
+    );
+generateLetterGrid();
+  var word="";
     // TODO: Refactor to avoid collisions on origin values;
-    for (final word in targetWords) {
+    for (word in targetWords) {
       print(word);
       Axis wordDirection =
           Axis.values.elementAt(random.nextInt(Axis.values.length));
@@ -121,7 +142,7 @@ class WordSearchActivityState extends State<WordSearchActivity> {
       }
       solutions[word] = [startX, startY];
     }
-
+  
     super.initState();
   }
 
