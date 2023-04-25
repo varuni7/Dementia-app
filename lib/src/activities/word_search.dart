@@ -107,7 +107,7 @@ class WordSearchActivityState extends State<WordSearchActivity> {
 
   @override
   void initState() {
-    
+    generateLetterGrid();
     getCurrentUser().then((value) {
       setState(() {
         print("hey");
@@ -117,7 +117,7 @@ class WordSearchActivityState extends State<WordSearchActivity> {
       });
     }
     );
-generateLetterGrid();
+
   var word="";
     // TODO: Refactor to avoid collisions on origin values;
     for (word in targetWords) {

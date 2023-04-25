@@ -6,6 +6,7 @@ import 'package:projectroots/src/activities/patient_records.dart';
 import 'package:projectroots/theme.dart';
 import 'dart:math';
 import 'package:projectroots/src/pages/signup_form.dart';
+import 'package:projectroots/src/activities/new_todo_activity/Todo.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Project Roots',
       theme: projectRootsThemeData,
       routes: {
         HomePage.path: (context) => const HomePage(),
@@ -28,6 +29,7 @@ class App extends StatelessWidget {
         PatientRecords.path: (context) => PatientRecords(),
         QueryFormPage.path: (context) => QueryFormPage(),
         PatientScreen.path:((context) => PatientScreen()),
+
       },
     );
   }

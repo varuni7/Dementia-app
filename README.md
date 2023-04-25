@@ -32,7 +32,7 @@ flutter pub get
 
 ```
 
-Run it on release mode 
+Run 
 
 ```
 flutter run --release 
@@ -40,7 +40,11 @@ flutter run --release
 
 then choose web mode (the app only runs on web mode as of now)
 
- 
+## References 
+
+1. [Participation in cognitively-stimulating activities is associated with brain structure and cognitive function in preclinical Alzheimer’s disease](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4417099/)
+2. [A Review on Serious Games for Dementia Care in Ageing Societies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7279699/)
+3. [Game-based inter Game-based interventions and their impact on dementia: a narr entions and their impact on dementia: a narrative review ](https://ro.uow.edu.au/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1713&context=eispapers1)
 
 ## Have to work on :
 

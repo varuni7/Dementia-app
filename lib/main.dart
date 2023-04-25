@@ -10,8 +10,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
-    const ProviderScope(
-      child: App(),
+    const ProviderScope(// wrap entire app in a provider scope so that all widgets will be able to read providers
+      child: App(),//ProviderScope is a widget that stores the state of all the providers we create.
     ),
   );
 }
