@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:projectroots/activities.dart';
+import 'package:projectroots/src/activities.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:projectroots/src/activities/new_todo_activity/Todo.dart';
 final Color blue = Color.fromARGB(255, 24, 155, 116);
 
 class PatientScreen extends StatefulWidget {

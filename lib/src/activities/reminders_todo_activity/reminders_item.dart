@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'reminders_schema.dart';
 
@@ -12,6 +14,9 @@ class ToDoItem extends StatelessWidget {
     required this.onToDoChanged,
     required this.onDeleteItem,
   }) : super(key: key);
+  
+ 
+   
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +60,7 @@ class ToDoItem extends StatelessWidget {
             onPressed: () {
               // print('Clicked on delete icon');
               onDeleteItem(todo.id);
+              
             },
           ),
         ),

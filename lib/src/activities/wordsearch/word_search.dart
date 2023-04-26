@@ -1,8 +1,11 @@
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../hints.dart';
+import 'hints.dart';
+import 'word_search_data.dart';
 
 const letters = [
   'A',
@@ -50,34 +53,54 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   // For the Line Painter
   Offset lineStart = Offset.zero;
   Offset lineEnd = Offset.zero;
+  final _fireStore = FirebaseFirestore.instance;
+  final _auth = FirebaseAuth.instance;
 
   Map<String, List<int>> solutions = {};
   // Grid Variables
   final int gridSize = 10;
   final List<String> gridLetters = [];
+
   // Selection and Activation on interaction
   final List<int> selectedCellIndexes = [];
   final Set<GridCellRenderObject> activeCells = {};
   final List<int> activeCellIndexes = [];
   // Test words
-  final targetWords = [
-    "varuni",
-    "rohan",
-    "monica",
-    "green",
-    "bangalore",
-    "reshma",
-    "peanuts"
-  ];
+  // Future<List<String>> getCurrentUser() async {
+  //   final user = _auth.currentUser;
+  //   if (user == null) {
+  //     return Future.value([]);
+  //   } else {
+  //     Map<String, dynamic> user_deets =
+  //         (await _fireStore.collection('users').doc(user.uid).get()).data()!;
+  //     return [
+  //       user_deets["first_name"],
+  //       user_deets["spouse_name"],
+  //       user_deets["fav_colour"]
+  //     ];
+  //   }
+  // }
+
+  late List targetWords = [];
+  //["rohan", "monica", "bangalore", "green", "peanuts"];
 
   int get gridArea => gridSize * gridSize;
 
   @override
   void initState() {
     generateLetterGrid();
+    getCurrentUser().then((value) {
+      setState(() {
+        print("hey");
+        targetWords = value;
+        print(targetWords);
+        print("meme");
+      });
+    });
 
+    var word = "";
     // TODO: Refactor to avoid collisions on origin values;
-    for (final word in targetWords) {
+    for (word in targetWords) {
       print(word);
       Axis wordDirection =
           Axis.values.elementAt(random.nextInt(Axis.values.length));
@@ -184,7 +207,8 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reverse Search"),
+        backgroundColor: Color.fromRGBO(106, 153, 78, 1),
+        title: Text("Word Search"),
       ),
       body: Center(
         child: GestureDetector(
@@ -217,6 +241,9 @@ class WordSearchActivityState extends State<WordSearchActivity> {
         ),
       ),
       floatingActionButton: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.black,
+          ),
           onPressed: (() => Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => Hints()))),
           child: Text("Hints")),

@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
 import 'reminders_schema.dart';
 import 'reminders_item.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:confetti/confetti.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class TodoActivity extends StatefulWidget {
   static const path = '/todo';
   static const name = 'To-Do';
+  final _fireStore = FirebaseFirestore.instance;
+  final _auth = FirebaseAuth.instance;
+  late User loggedInUser;
   TodoActivity({Key? key}) : super(key: key);
 
   @override
   State<TodoActivity> createState() => _HomeState();
 }
 
- 
 class _HomeState extends State<TodoActivity> {
   final todosList = Todo.todoList();
   List<Todo> _foundToDo = [];
   final _todoController = TextEditingController();
-
+  final _fireStore = FirebaseFirestore.instance;
+  final _auth = FirebaseAuth.instance;
   @override
   void initState() {
     _foundToDo = todosList;
+
     super.initState();
   }
 
@@ -107,8 +114,23 @@ class _HomeState extends State<TodoActivity> {
                       fontSize: 40,
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     _addToDoItem(_todoController.text);
+                         print(_todoController.text);
+                    try {
+                      await _fireStore
+                          .collection('users')
+                          .doc(_auth.currentUser!.uid)
+                          .collection("todo")
+                          .add({
+                       
+                        'created': Timestamp.now(),
+                        'todo_item': _todoController.text,
+                        //'registered':
+                      });
+                    } catch (e) {
+                      print(e);
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(60, 60),
@@ -205,7 +227,7 @@ class _HomeState extends State<TodoActivity> {
           width: 40,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.asset('assets/images/avatar.jpeg'),
+            child: Image.asset('assets/images/clock.png'),
           ),
         ),
       ]),

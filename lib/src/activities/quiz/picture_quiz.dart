@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projectroots/src/activities/picture_quiz/answer.dart';
+import 'package:projectroots/src/activities/quiz/answer.dart';
 
 class PictureQuizActivity extends StatefulWidget {
   static const path = "/picture-quiz";

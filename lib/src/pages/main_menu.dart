@@ -1,11 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:projectroots/activities.dart';
-import 'package:projectroots/pages.dart';
-import 'package:projectroots/src/activities/patient_records.dart';
+import 'package:projectroots/src/activities.dart';
+import 'package:projectroots/src/pages.dart';
+import 'package:projectroots/src/pages/patient_records.dart';
 import 'package:projectroots/src/pages/signup_form.dart';
 import 'package:projectroots/src/pages/patient_screen.dart';
+import 'package:projectroots/src/activities/new_todo_activity/Todo.dart';
 //import 'package:projectroots/activities/table.dart';
 
 class MainMenu extends ConsumerWidget {
@@ -33,7 +34,6 @@ class MainMenu extends ConsumerWidget {
                 onPressed: () => _navigateToScreen(context, TodoActivity.path),
                 child: const Text('Add ToDo Reminder'),
               ),
-             
               ElevatedButton(
                 onPressed: () =>
                     _navigateToScreen(context, ReverseSpellActivity.path),
@@ -61,7 +61,6 @@ class MainMenu extends ConsumerWidget {
             children: [
               Container(
                   child: Image.asset("assets/images/patient_proflie_pic.png")),
-               
               ElevatedButton(
                 onPressed: () =>
                     _navigateToScreen(context, WordSearchActivity.path),
@@ -74,10 +73,7 @@ class MainMenu extends ConsumerWidget {
               ),
             ]);
       default:
-        final _fireStore = FirebaseFirestore.instance;
-        final loggedInUsername =
-            _fireStore.collection("users").doc('first_name').get();
-       // return Text("Default condition");
+        
         return PatientScreen();
 //         return Theme(
 //           data: ThemeData.dark()
