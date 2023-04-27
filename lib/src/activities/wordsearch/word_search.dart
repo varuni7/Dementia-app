@@ -91,10 +91,9 @@ class WordSearchActivityState extends State<WordSearchActivity> {
     generateLetterGrid();
     getCurrentUser().then((value) {
       setState(() {
-        print("hey");
+        
         targetWords = value;
         print(targetWords);
-        print("meme");
       });
     });
 

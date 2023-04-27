@@ -3,6 +3,7 @@ import 'package:confetti/confetti.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'Phone_recall_data.dart';
 
 class PhoneRecallActivity extends StatefulWidget {
   static const path = '/phone-recall';
@@ -19,8 +20,7 @@ class _PhoneRecallActivityState extends State<PhoneRecallActivity> {
   late final TextEditingController _textEditingController;
   bool? correctAns;
   FlutterTts flutterTts = FlutterTts();
-  final _fireStore = FirebaseFirestore.instance;
-  final _auth = FirebaseAuth.instance;
+
   late String target_number;
   @override
   initState() {
@@ -33,17 +33,6 @@ class _PhoneRecallActivityState extends State<PhoneRecallActivity> {
         target_number = value;
       });
     });
-  }
-
-  Future<String> getUserPhoneNumber() async {
-    final user = _auth.currentUser;
-    if (user == null) {
-      return Future.value("");
-    } else {
-      Map<String, dynamic> user_deets =
-          (await _fireStore.collection('users').doc(user.uid).get()).data()!;
-      return user_deets["caregiver_ph_number"];
-    }
   }
 
   _onEvaluateAnswer() {
@@ -132,8 +121,7 @@ class _PhoneRecallActivityState extends State<PhoneRecallActivity> {
                     ),
                   )),
             ),
-            Text(result,
-             style: Theme.of(context).textTheme.headline5!),
+            Text(result, style: Theme.of(context).textTheme.headline5!),
             const SizedBox(
               height: 45,
             )
