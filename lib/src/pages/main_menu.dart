@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:projectroots/src/activities.dart';
-import 'package:projectroots/src/pages.dart';
+import 'package:projectroots/src/utils/activities.dart';
+import 'package:projectroots/src/utils/pages.dart';
 import 'package:projectroots/src/pages/patient_records.dart';
 import 'package:projectroots/src/pages/signup_form.dart';
 import 'package:projectroots/src/pages/patient_screen.dart';

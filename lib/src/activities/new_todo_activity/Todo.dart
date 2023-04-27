@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projectroots/src/activities.dart';
+import 'package:projectroots/src/utils/activities.dart';
 import 'package:projectroots/src/activities/new_todo_activity/widgets/add_task_dialog.dart';
 
 import 'views/tasks.dart';

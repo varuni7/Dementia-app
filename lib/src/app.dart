@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projectroots/src/pages.dart';
-import 'package:projectroots/src/activities.dart';
+import 'package:projectroots/src/utils/pages.dart';
+import 'package:projectroots/src/utils/activities.dart';
 import 'package:projectroots/theme.dart';
 import 'dart:math';
 import 'package:projectroots/src/pages/signup_form.dart';
