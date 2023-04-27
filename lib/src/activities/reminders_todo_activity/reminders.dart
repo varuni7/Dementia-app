@@ -4,29 +4,29 @@ import 'reminders_item.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:confetti/confetti.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'reminders_data.dart';
+
+final todoController = TextEditingController();
 
 class TodoActivity extends StatefulWidget {
   static const path = '/todo';
   static const name = 'To-Do';
-  final _fireStore = FirebaseFirestore.instance;
-  final _auth = FirebaseAuth.instance;
-  late User loggedInUser;
+
   TodoActivity({Key? key}) : super(key: key);
 
   @override
-  State<TodoActivity> createState() => _HomeState();
+  State<TodoActivity> createState() => _TodoActivityState();
 }
 
-class _HomeState extends State<TodoActivity> {
+class _TodoActivityState extends State<TodoActivity> {
   final todosList = Todo.todoList();
   List<Todo> _foundToDo = [];
-  final _todoController = TextEditingController();
+
   final _fireStore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
   @override
   void initState() {
     _foundToDo = todosList;
-
     super.initState();
   }
 
@@ -95,7 +95,7 @@ class _HomeState extends State<TodoActivity> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: TextField(
-                    controller: _todoController,
+                    controller: todoController,
                     decoration: InputDecoration(
                         hintText: 'Add a new todo item',
                         border: InputBorder.none),
@@ -114,24 +114,12 @@ class _HomeState extends State<TodoActivity> {
                       fontSize: 40,
                     ),
                   ),
-                  onPressed: () async {
-                    _addToDoItem(_todoController.text);
-                         print(_todoController.text);
-                    try {
-                      await _fireStore
-                          .collection('users')
-                          .doc(_auth.currentUser!.uid)
-                          .collection("todo")
-                          .add({
-                       
-                        'created': Timestamp.now(),
-                        'todo_item': _todoController.text,
-                        //'registered':
-                      });
-                    } catch (e) {
-                      print(e);
-                    }
-                  },
+                  onPressed: () {
+                    _addToDoItem(todoController.text);
+                    print(todoController.text);
+                    addUserTodoData(todoController.text);
+                           },
+                    
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(60, 60),
                     elevation: 10,
@@ -164,7 +152,7 @@ class _HomeState extends State<TodoActivity> {
         todoText: toDo,
       ));
     });
-    _todoController.clear();
+    todoController.clear();
   }
 
   void _runFilter(String enteredKeyword) {
