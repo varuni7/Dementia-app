@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projectroots/src/utils/activities.dart';
-import 'package:projectroots/src/activities/new_todo_activity/widgets/add_task_dialog.dart';
+import 'package:projectroots/src/activities/todo_activity_new/widgets/add_task_dialog.dart';
 
 import 'views/tasks.dart';
 import 'views/categories.dart';

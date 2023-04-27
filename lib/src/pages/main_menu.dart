@@ -6,7 +6,7 @@ import 'package:projectroots/src/utils/pages.dart';
 import 'package:projectroots/src/pages/patient_records.dart';
 import 'package:projectroots/src/pages/signup_form.dart';
 import 'package:projectroots/src/pages/patient_screen.dart';
-import 'package:projectroots/src/activities/new_todo_activity/Todo.dart';
+import 'package:projectroots/src/activities/todo_activity_new/Todo.dart';
 //import 'package:projectroots/activities/table.dart';
 
 class MainMenu extends ConsumerWidget {
