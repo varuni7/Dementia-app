@@ -9,6 +9,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:projectroots/src/pages/patient_screen.dart';
+import 'package:projectroots/src/pages/signup_form.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -85,7 +86,7 @@ class LoginPage extends StatelessWidget {
                           textStyle: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold)),
         )))),
-       
+ 
       ],
     );
   }

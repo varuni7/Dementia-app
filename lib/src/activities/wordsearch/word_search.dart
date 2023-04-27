@@ -53,8 +53,6 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   // For the Line Painter
   Offset lineStart = Offset.zero;
   Offset lineEnd = Offset.zero;
-  final _fireStore = FirebaseFirestore.instance;
-  final _auth = FirebaseAuth.instance;
 
   Map<String, List<int>> solutions = {};
   // Grid Variables
@@ -65,21 +63,7 @@ class WordSearchActivityState extends State<WordSearchActivity> {
   final List<int> selectedCellIndexes = [];
   final Set<GridCellRenderObject> activeCells = {};
   final List<int> activeCellIndexes = [];
-  // Test words
-  // Future<List<String>> getCurrentUser() async {
-  //   final user = _auth.currentUser;
-  //   if (user == null) {
-  //     return Future.value([]);
-  //   } else {
-  //     Map<String, dynamic> user_deets =
-  //         (await _fireStore.collection('users').doc(user.uid).get()).data()!;
-  //     return [
-  //       user_deets["first_name"],
-  //       user_deets["spouse_name"],
-  //       user_deets["fav_colour"]
-  //     ];
-  //   }
-  // }
+  
 
   late List targetWords = [];
   //["rohan", "monica", "bangalore", "green", "peanuts"];
@@ -91,21 +75,20 @@ class WordSearchActivityState extends State<WordSearchActivity> {
     generateLetterGrid();
     getCurrentUser().then((value) {
       setState(() {
-        
         targetWords = value;
         print(targetWords);
       });
     });
 
     var word = "";
-    // TODO: Refactor to avoid collisions on origin values;
+
     for (word in targetWords) {
       print(word);
       Axis wordDirection =
           Axis.values.elementAt(random.nextInt(Axis.values.length));
 
       final wordAsList = word.split('');
-      final origin = getWordOrigin(word, Axis.vertical);
+      final origin = getWordOrigin(word, random.nextInt(2));
       int startX = origin[0];
       int startY = origin[1];
       print("$startX, $startY");
@@ -132,7 +115,14 @@ class WordSearchActivityState extends State<WordSearchActivity> {
     }
   }
 
-  List<int> getWordOrigin(String word, Axis direction) {
+  List<int> getWordOrigin(String word, int direction_int) {
+    Axis direction = Axis.horizontal;
+    if (direction_int == 0) {
+      direction = Axis.horizontal;
+    } else {
+      direction = Axis.vertical;
+    }
+
     if (direction == Axis.horizontal) {
       return [
         random.nextInt(gridSize - word.length),

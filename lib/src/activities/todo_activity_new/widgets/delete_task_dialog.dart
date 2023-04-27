@@ -19,7 +19,7 @@ class _DeleteTaskDialogState extends State<DeleteTaskDialog> {
       title: const Text(
         'Delete Task',
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 16, color: Colors.brown),
+        style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 124, 179, 101)),
       ),
       content: SizedBox(
         child: Form(
@@ -45,7 +45,7 @@ class _DeleteTaskDialogState extends State<DeleteTaskDialog> {
             Navigator.of(context, rootNavigator: true).pop();
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.grey,
+            primary: Color.fromARGB(255, 8, 13, 9),
           ),
           child: const Text('Cancel'),
         ),
@@ -55,7 +55,7 @@ class _DeleteTaskDialogState extends State<DeleteTaskDialog> {
             Navigator.of(context, rootNavigator: true).pop();
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.brown,
+            primary: Color.fromARGB(255, 16, 13, 13),
           ),
           child: const Text('Delete'),
         ),

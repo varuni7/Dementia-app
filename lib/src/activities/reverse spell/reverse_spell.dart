@@ -7,19 +7,11 @@ import 'package:projectroots/src/extensions/string.dart';
 import 'dart:async';
 import 'dart:math';
 import 'reverse_spell_data.dart';
+//part 'reverse_spell_test.dart';
 
 class ReverseSpellActivity extends StatefulWidget {
   static const path = '/reverse_spelling';
   static const name = 'Reverse Spell';
-
-  final _fireStore = FirebaseFirestore.instance;
-  final _auth = FirebaseAuth.instance;
-
-  ReverseSpellActivity({
-    super.key,
-
-    //_getCurrentUser().then(String target_word),
-  });
 
   @override
   State<ReverseSpellActivity> createState() => _ReverseSpellActivityState();
@@ -30,8 +22,7 @@ class _ReverseSpellActivityState extends State<ReverseSpellActivity> {
   bool isStarted = false;
   bool? correctAns;
   Color? correctTextColor = Colors.green;
-  final _fireStore = FirebaseFirestore.instance;
-  final _auth = FirebaseAuth.instance;
+  
   late String target_word;
 
   FlutterTts flutterTts = FlutterTts();

@@ -141,19 +141,6 @@ class _QueryFormPageState extends State<QueryFormPage> {
   late String phone_number;
   late TextEditingController phone_numberTextController;
 
-// class _LoginData {
-//   late String first_name = 'asd';
-//   String ph_num = '';
-//   int no_of_children = 0;
-//   String spouse_name = '';
-//   String daughter_name = '';
-//   late String son_name = '';
-//   late String city = '';
-//   String fav_food = '';
-//   String fav_color = '';
-//   String locality_name = '';
-//   String allergies = '';
-// }
 
   void submit() {
     // First validate form.
