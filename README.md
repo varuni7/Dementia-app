@@ -46,13 +46,4 @@ then choose web mode (the app only runs on web mode as of now)
 2. [A Review on Serious Games for Dementia Care in Ageing Societies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7279699/)
 3. [Game-based inter Game-based interventions and their impact on dementia: a narr entions and their impact on dementia: a narrative review ](https://ro.uow.edu.au/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1713&context=eispapers1)
 
-## Have to work on :
-
-1. Implementing Google Auth for Mac 
-2. Fixing "Plugin with id 'com.google.gms.google-servicies' not found" error 
-Have tried fixes :
-https://stackoverflow.com/a/42174335
-https://stackoverflow.com/a/47171000
-3. Fix Gradel Task assemble release 
-4. Include more games
 
